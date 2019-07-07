@@ -9,12 +9,17 @@ function createBoard() {
     for(let i = 0; i< 4; i++) {
         board[i] = []
         for(let j = 0; j < 4; j++) {
-            board[i][j] = nums.pop()
+            board[i][j] = nums.splice(getRandomInt(0,nums.length),1)
         }
     }
     return board
 }
 
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 function getNums() {
     const nums = []
     for(let i = 0; i < 4 * 4; i++) {
